@@ -1,7 +1,5 @@
 import pickle
 
-
-# ---------- Classes ----------
 class Employee:
     def __init__(self):
         self.id = ""
@@ -29,7 +27,6 @@ class Employee:
         print("Employee Phone: " + self.phone)
         print("Employee Email: " + self.email)
         print("Employee Salary: " + str(self.salary))
-
 
 class Manager:
     def __init__(self):
@@ -59,7 +56,6 @@ class Manager:
     def give_raise(self, emp, percent):
         emp.salary = emp.salary + emp.salary * percent / 100
 
-
 class Company:
     def __init__(self):
         self.id = ""
@@ -85,10 +81,6 @@ class Company:
         print("Company Phone: " + self.phone)
         print("Company Address: " + self.address)
 
-
-# ---------- Small helper functions ----------
-# Each file stores ONE list of objects.
-# load() gets the list out of the file, save() puts the list back in.
 def load(filename):
     try:
         file = open(filename, "rb")
@@ -96,24 +88,19 @@ def load(filename):
         file.close()
         return data
     except FileNotFoundError:
-        return []   # file doesn't exist yet, so start with an empty list
-
+        return []   # file doesn't exist yet
 
 def save(filename, data):
     file = open(filename, "wb")
     pickle.dump(data, file)
     file.close()
 
-
-# Look through a list for the item with a matching ID
 def find(items, item_id):
     for item in items:
         if item.id == item_id:
             return item
     return None
 
-
-# ---------- Main code ----------
 while True:
     print()
     print("1.Add Manager")
@@ -184,4 +171,4 @@ while True:
         break
 
     else:
-        print("Invalid input")
+        print("Invalid input"
